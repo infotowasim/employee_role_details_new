@@ -50,6 +50,8 @@ class EmployeeControllerTest {
     @Test
     void createEmployee_ReturnsCreatedEmployeeDTO() {
         // Arrange
+
+        // Set employeeDTO properties
         EmployeeDTO employeeDTO  = new EmployeeDTO();
         employeeDTO.setFastName("John");
         employeeDTO.setLastName("Doe");
@@ -57,8 +59,8 @@ class EmployeeControllerTest {
         employeeDTO.setSalary(33333);
         employeeDTO.setAge(25);
 
-//
 
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
         expectedEmployeeDTO.setFastName("John");
@@ -67,7 +69,6 @@ class EmployeeControllerTest {
         expectedEmployeeDTO.setSalary(33333);
         expectedEmployeeDTO.setAge(25);
 
-//
 
         when(employeeService.createEmployee(employeeDTO)).thenReturn(expectedEmployeeDTO);
 
@@ -87,10 +88,12 @@ class EmployeeControllerTest {
     void getAllEmployeeRecords_ReturnsListOfEmployeeDTOs() {
 
         // Arrange
+
+        // create expected EmployeeDTO objects to the list
         List<EmployeeDTO> expectedEmployeeDTOList = new ArrayList<>();
 
 
-        // Create and add expected EmployeeDTO objects to the list
+        // Set employeeDTO1 properties
         EmployeeDTO employeeDTO1 = new EmployeeDTO();
         employeeDTO1.setId(1L);
         employeeDTO1.setFastName("John");
@@ -99,15 +102,16 @@ class EmployeeControllerTest {
         employeeDTO1.setSalary(33333);
         employeeDTO1.setAge(25);
 
-        // Set other employeeDTO1 properties
+        // add expected EmployeeDTO objects to the list
         expectedEmployeeDTOList.add(employeeDTO1);
 
+        // Set employeeDTO2 properties
         EmployeeDTO employeeDTO2 = new EmployeeDTO();
         employeeDTO2.setId(2L);
         employeeDTO2.setFastName("Jane");
         employeeDTO2.setLastName("Smith");
 
-        // Set other employeeDTO2 properties
+
         expectedEmployeeDTOList.add(employeeDTO2);
 
         // Mock the employeeService to return the expectedEmployeeDTOList
@@ -129,12 +133,14 @@ class EmployeeControllerTest {
 
         // Arrange
         long employeeId = 1L;
+
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(employeeId);
         expectedEmployeeDTO.setFastName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
-        // Set other expectedEmployeeDTO properties
+//
         when(employeeService.getEmployeeSingleRecordById(employeeId)).thenReturn(expectedEmployeeDTO);
 
         // Act
@@ -153,6 +159,8 @@ class EmployeeControllerTest {
 
         // Arrange
         long employeeId = 2L;
+
+        // Set employeeDTO properties
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setFastName("John");
         employeeDTO.setLastName("Doe");
@@ -160,8 +168,8 @@ class EmployeeControllerTest {
         employeeDTO.setSalary(33333);
         employeeDTO.setAge(25);
 
-        // Set other employeeDTO properties
 
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
         expectedEmployeeDTO.setFastName("John");
@@ -170,7 +178,6 @@ class EmployeeControllerTest {
         expectedEmployeeDTO.setSalary(33333);
         expectedEmployeeDTO.setAge(25);
 
-        // Set other expectedEmployeeDTO properties
 
         when(employeeService.updateEmployeeRecordById(employeeId, employeeDTO)).thenReturn(expectedEmployeeDTO);
 

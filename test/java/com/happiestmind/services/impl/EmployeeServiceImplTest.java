@@ -5,11 +5,13 @@ import com.happiestmind.entities.Employee;
 import com.happiestmind.payload.EmployeeDTO;
 import com.happiestmind.repositories.EmployeeRepository;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -48,40 +50,43 @@ class EmployeeServiceImplTest {
         // Create a list of Employee entities
         List<Employee> employeeList = new ArrayList<>();
 
-
+        // Set employee1 properties
         Employee employee1 = new Employee();
         employee1.setId(1L);
         employee1.setFastName("John");
         employee1.setLastName("Doe");
 
-        // Set other employee1 properties
+
         employeeList.add(employee1);
 
+        // Set employee2 properties
         Employee employee2 = new Employee();
         employee2.setId(2L);
         employee2.setFastName("Jane");
         employee2.setLastName("Smith");
 
-        // Set other employee2 properties
+
         employeeList.add(employee2);
 
         // Create a list of corresponding EmployeeDTOs
         List<EmployeeDTO> expectedEmployeeDTOList = new ArrayList<>();
 
+        // Set employeeDTO1 properties
         EmployeeDTO employeeDTO1 = new EmployeeDTO();
         employeeDTO1.setId(1L);
         employeeDTO1.setFastName("John");
         employeeDTO1.setLastName("Doe");
 
-        // Set other employeeDTO1 properties
+
         expectedEmployeeDTOList.add(employeeDTO1);
 
+        // Set employeeDTO2 properties
         EmployeeDTO employeeDTO2 = new EmployeeDTO();
         employeeDTO2.setId(2L);
         employeeDTO2.setFastName("Jane");
         employeeDTO2.setLastName("Smith");
 
-        // Set other employeeDTO2 properties
+
         expectedEmployeeDTOList.add(employeeDTO2);
 
         when(employeeRepository.findAll()).thenReturn(employeeList);
@@ -116,7 +121,7 @@ class EmployeeServiceImplTest {
         employeeDTO.setLastName("Doe");
 
 
-//
+        // Set employee properties
         Employee employee = new Employee();
 
         employee.setId(1L);
@@ -124,7 +129,7 @@ class EmployeeServiceImplTest {
         employee.setLastName("Doe");
 
 
-//
+        // Set savedEmployee properties
         Employee savedEmployee = new Employee();
 
         savedEmployee.setId(1L);
@@ -132,14 +137,14 @@ class EmployeeServiceImplTest {
         savedEmployee.setLastName("Doe");
 
 
-//
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
 
         expectedEmployeeDTO.setId(1L);
         expectedEmployeeDTO.setFastName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
-//
+
         when(modelMapper.map(employeeDTO, Employee.class)).thenReturn(employee);
         when(employeeRepository.save(employee)).thenReturn(savedEmployee);
         when(modelMapper.map(savedEmployee, EmployeeDTO.class)).thenReturn(expectedEmployeeDTO);
@@ -161,20 +166,21 @@ class EmployeeServiceImplTest {
 
         // Arrange
         long employeeId = 1L;
+
+        // Set employee properties
         Employee employee = new Employee();
         employee.setId(1L);
         employee.setFastName("John");
         employee.setLastName("Doe");
 
 
-//
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
         expectedEmployeeDTO.setFastName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
 
-//
         when(employeeRepository.findById(employeeId)).thenReturn(Optional.of(employee));
         when(modelMapper.map(employee, EmployeeDTO.class)).thenReturn(expectedEmployeeDTO);
 
@@ -194,6 +200,8 @@ class EmployeeServiceImplTest {
 
         // Arrange
         long employeeId = 2L;
+
+        // Set employeeDTO properties
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setId(1L);
         employeeDTO.setFastName("John");
@@ -201,7 +209,7 @@ class EmployeeServiceImplTest {
 
 
 
-//
+        // Set employee properties
         Employee employee = new Employee();
         employee.setId(1L);
         employee.setFastName("John");
@@ -209,22 +217,18 @@ class EmployeeServiceImplTest {
 
 
 
-//
+        // Set updatedEmployee properties
         Employee updatedEmployee = new Employee();
         updatedEmployee.setId(1L);
         updatedEmployee.setFastName("wasim");
         updatedEmployee.setLastName("akram");
 
-        // Set updatedEmployee properties
 
-
+        // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
         expectedEmployeeDTO.setFastName("John");
         expectedEmployeeDTO.setLastName("Doe");
-
-
-        // Set expectedEmployeeDTO properties
 
 
         when(employeeRepository.findById(employeeId)).thenReturn(Optional.of(employee));
@@ -243,5 +247,24 @@ class EmployeeServiceImplTest {
         verify(modelMapper, times(1)).map(updatedEmployee, EmployeeDTO.class);
 
     }
+
+
+        @Test
+        void deleteSingleEmployeeRecordById_ExistingEmployee_SuccessfullyDeleted() {
+
+            MockitoAnnotations.openMocks(this);
+            // Arrange
+            long employeeId = 1L;
+            Employee employee = new Employee();
+            employee.setId(employeeId);
+
+            when(employeeRepository.findById(employeeId)).thenReturn(Optional.of(employee));
+            // Act
+            employeeService.deleteSingleEmployeeRecordById(employeeId);
+
+            // Assert
+            verify(employeeRepository, times(1)).findById(employeeId);
+            verify(employeeRepository, times(1)).delete(employee);
+        }
 
 }
