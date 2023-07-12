@@ -5,7 +5,6 @@ import com.happiestmind.entities.Employee;
 import com.happiestmind.payload.EmployeeDTO;
 import com.happiestmind.repositories.EmployeeRepository;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -53,7 +52,7 @@ class EmployeeServiceImplTest {
         // Set employee1 properties
         Employee employee1 = new Employee();
         employee1.setId(1L);
-        employee1.setFastName("John");
+        employee1.setFirstName("John");
         employee1.setLastName("Doe");
 
 
@@ -62,7 +61,7 @@ class EmployeeServiceImplTest {
         // Set employee2 properties
         Employee employee2 = new Employee();
         employee2.setId(2L);
-        employee2.setFastName("Jane");
+        employee2.setFirstName("Jane");
         employee2.setLastName("Smith");
 
 
@@ -74,7 +73,7 @@ class EmployeeServiceImplTest {
         // Set employeeDTO1 properties
         EmployeeDTO employeeDTO1 = new EmployeeDTO();
         employeeDTO1.setId(1L);
-        employeeDTO1.setFastName("John");
+        employeeDTO1.setFirstName("John");
         employeeDTO1.setLastName("Doe");
 
 
@@ -83,7 +82,7 @@ class EmployeeServiceImplTest {
         // Set employeeDTO2 properties
         EmployeeDTO employeeDTO2 = new EmployeeDTO();
         employeeDTO2.setId(2L);
-        employeeDTO2.setFastName("Jane");
+        employeeDTO2.setFirstName("Jane");
         employeeDTO2.setLastName("Smith");
 
 
@@ -117,7 +116,7 @@ class EmployeeServiceImplTest {
         // Arrange
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setId(1L);
-        employeeDTO.setFastName("John");
+        employeeDTO.setFirstName("John");
         employeeDTO.setLastName("Doe");
 
 
@@ -125,7 +124,7 @@ class EmployeeServiceImplTest {
         Employee employee = new Employee();
 
         employee.setId(1L);
-        employee.setFastName("John");
+        employee.setFirstName("John");
         employee.setLastName("Doe");
 
 
@@ -133,7 +132,7 @@ class EmployeeServiceImplTest {
         Employee savedEmployee = new Employee();
 
         savedEmployee.setId(1L);
-        savedEmployee.setFastName("John");
+        savedEmployee.setFirstName("John");
         savedEmployee.setLastName("Doe");
 
 
@@ -141,7 +140,7 @@ class EmployeeServiceImplTest {
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
 
         expectedEmployeeDTO.setId(1L);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
 
@@ -170,14 +169,14 @@ class EmployeeServiceImplTest {
         // Set employee properties
         Employee employee = new Employee();
         employee.setId(1L);
-        employee.setFastName("John");
+        employee.setFirstName("John");
         employee.setLastName("Doe");
 
 
         // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
 
@@ -204,7 +203,7 @@ class EmployeeServiceImplTest {
         // Set employeeDTO properties
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setId(1L);
-        employeeDTO.setFastName("John");
+        employeeDTO.setFirstName("John");
         employeeDTO.setLastName("Doe");
 
 
@@ -212,7 +211,7 @@ class EmployeeServiceImplTest {
         // Set employee properties
         Employee employee = new Employee();
         employee.setId(1L);
-        employee.setFastName("John");
+        employee.setFirstName("John");
         employee.setLastName("Doe");
 
 
@@ -220,14 +219,14 @@ class EmployeeServiceImplTest {
         // Set updatedEmployee properties
         Employee updatedEmployee = new Employee();
         updatedEmployee.setId(1L);
-        updatedEmployee.setFastName("wasim");
+        updatedEmployee.setFirstName("wasim");
         updatedEmployee.setLastName("akram");
 
 
         // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
 
