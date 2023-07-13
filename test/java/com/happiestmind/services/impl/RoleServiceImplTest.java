@@ -19,7 +19,7 @@ import java.util.Optional;
 
 
 @RunWith(MockitoJUnitRunner.class)
- class RoleServiceImplTest {
+public class RoleServiceImplTest {
 
     @InjectMocks
     private RoleServiceImpl roleService;
