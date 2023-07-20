@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(RoleController.class)
- class RoleControllerTest {
+class RoleControllerTest {
 
 
     @Autowired
