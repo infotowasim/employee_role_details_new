@@ -13,6 +13,4 @@ public class EmployeeDTO {
     private float salary;
     private int age;
 
-
-
 }
