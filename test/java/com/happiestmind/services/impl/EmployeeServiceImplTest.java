@@ -145,17 +145,17 @@ class EmployeeServiceImplTest {
 
 
         when(modelMapper.map(employeeDTO, Employee.class)).thenReturn(employee);
-        when(employeeRepository.save(employee)).thenReturn(savedEmployee);
-        when(modelMapper.map(savedEmployee, EmployeeDTO.class)).thenReturn(expectedEmployeeDTO);
+        when(employeeRepository.save(employee)).thenReturn(employee);
+        when(modelMapper.map(employee, EmployeeDTO.class)).thenReturn(employeeDTO);
 
         // Act
         EmployeeDTO createdEmployeeDTO = employeeService.createEmployee(employeeDTO);
 
         // Assert
-        assertEquals(expectedEmployeeDTO, createdEmployeeDTO);
+        assertEquals(employeeDTO, createdEmployeeDTO);
         verify(employeeRepository, times(1)).save(employee);
         verify(modelMapper, times(1)).map(employeeDTO, Employee.class);
-        verify(modelMapper, times(1)).map(savedEmployee, EmployeeDTO.class);
+        verify(modelMapper, times(1)).map(employee, EmployeeDTO.class);
 
     }
 
