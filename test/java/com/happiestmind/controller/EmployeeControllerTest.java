@@ -11,9 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.modelmapper.ModelMapper;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,7 +50,7 @@ class EmployeeControllerTest {
 
         // Set employeeDTO properties
         EmployeeDTO employeeDTO  = new EmployeeDTO();
-        employeeDTO.setFastName("John");
+        employeeDTO.setFirstName("John");
         employeeDTO.setLastName("Doe");
         employeeDTO.setEmail("john@gmail.com");
         employeeDTO.setSalary(33333);
@@ -63,7 +60,7 @@ class EmployeeControllerTest {
         // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
         expectedEmployeeDTO.setEmail("john@gmail.com");
         expectedEmployeeDTO.setSalary(33333);
@@ -96,7 +93,7 @@ class EmployeeControllerTest {
         // Set employeeDTO1 properties
         EmployeeDTO employeeDTO1 = new EmployeeDTO();
         employeeDTO1.setId(1L);
-        employeeDTO1.setFastName("John");
+        employeeDTO1.setFirstName("John");
         employeeDTO1.setLastName("Doe");
         employeeDTO1.setEmail("john@gmail.com");
         employeeDTO1.setSalary(33333);
@@ -108,7 +105,7 @@ class EmployeeControllerTest {
         // Set employeeDTO2 properties
         EmployeeDTO employeeDTO2 = new EmployeeDTO();
         employeeDTO2.setId(2L);
-        employeeDTO2.setFastName("Jane");
+        employeeDTO2.setFirstName("Jane");
         employeeDTO2.setLastName("Smith");
 
 
@@ -137,7 +134,7 @@ class EmployeeControllerTest {
         // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(employeeId);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
 
 //
@@ -162,7 +159,7 @@ class EmployeeControllerTest {
 
         // Set employeeDTO properties
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setFastName("John");
+        employeeDTO.setFirstName("John");
         employeeDTO.setLastName("Doe");
         employeeDTO.setEmail("john@gmail.com");
         employeeDTO.setSalary(33333);
@@ -172,7 +169,7 @@ class EmployeeControllerTest {
         // Set expectedEmployeeDTO properties
         EmployeeDTO expectedEmployeeDTO = new EmployeeDTO();
         expectedEmployeeDTO.setId(1L);
-        expectedEmployeeDTO.setFastName("John");
+        expectedEmployeeDTO.setFirstName("John");
         expectedEmployeeDTO.setLastName("Doe");
         expectedEmployeeDTO.setEmail("john@gmail.com");
         expectedEmployeeDTO.setSalary(33333);

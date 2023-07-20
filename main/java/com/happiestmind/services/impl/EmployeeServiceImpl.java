@@ -90,7 +90,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         // DTO to Entity
         // Converting  EmployeeDTO to EmployeeEntity.
-        employee.setFastName(employeeDTO.getFastName());
+        employee.setFirstName(employeeDTO.getFirstName());
         employee.setLastName(employeeDTO.getLastName());
         employee.setEmail(employeeDTO.getEmail());
         employee.setMobile(employeeDTO.getMobile());

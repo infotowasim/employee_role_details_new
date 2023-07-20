@@ -20,7 +20,7 @@ public class Employee {
     private long id;
 
     @Column(name = "first_name", nullable = false)
-    private String fastName;
+    private String firstName;
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
